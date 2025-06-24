@@ -98,17 +98,10 @@ public class NextoryLoginTest {
 
 
             // Test Flow 10: Check if first result contains “Harry Potter”
-
-            /*WebElement firstResult = driver.findElement(By.xpath("//android.widget.TextView[@text=\"harry potter och de vises sten\"]"));
-
-            String resultText = firstResult.getText();
-            Assert.assertTrue("First search result does not contain 'Harry Potter'", resultText.toLowerCase().contains("harry potter"));
-            System.out.println("First search result is Harry Potter - Done");*/
-
-            WebElement firstResult = driver.findElement(MobileBy.AndroidUIAutomator(
-                    "new UiSelector().text(\"harry potter och de vises sten\")")
-            );
-            System.out.println("✅ First result is: " + firstResult.getText());
+            WebElement firstResult = driver.findElement(By.xpath("//android.widget.TextView[@text='harry potter och de vises sten']"));
+            String resultText = firstResult.getText().toLowerCase();
+            Assert.assertTrue("First search result does not contain 'harry potter'", resultText.contains("harry potter"));
+            System.out.println("✅ First search result text: " + resultText);
 
     }
 
